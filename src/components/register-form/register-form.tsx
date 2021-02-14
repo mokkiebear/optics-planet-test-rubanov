@@ -40,7 +40,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <form className="register-form form">
+    <div className="register-form form">
       <div className="form__title">Register Your Account</div>
       <EmailInput
         value={email}
@@ -81,7 +81,7 @@ const RegisterForm = () => {
         type="white"
         onClick={() => history.push("/signin")}
       />
-    </form>
+    </div>
   );
 };
 

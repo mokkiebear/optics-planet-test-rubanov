@@ -9,9 +9,8 @@ export interface IInputProps {
   type: string;
   isRequired?: boolean;
   validationMessage?: string;
-  onBlur?: () => void;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  children?: JSX.Element,
+  children?: JSX.Element;
 }
 
 export const Input = ({
@@ -20,7 +19,6 @@ export const Input = ({
   type,
   isRequired,
   validationMessage,
-  onBlur,
   onChange,
   children,
 }: IInputProps) => {
@@ -28,14 +26,15 @@ export const Input = ({
     <div className="input">
       <label className="input__label">
         {label}
-        {isRequired && <span className="input__label--is-required-mark">*</span>}
+        {isRequired && (
+          <span className="input__label--is-required-mark">*</span>
+        )}
       </label>
       <input
         className="input__field"
         type={type}
         value={value}
         onChange={onChange}
-        onBlur={() => onBlur && onBlur()}
       ></input>
       {children}
       {validationMessage && <ValidationMessage message={validationMessage} />}
