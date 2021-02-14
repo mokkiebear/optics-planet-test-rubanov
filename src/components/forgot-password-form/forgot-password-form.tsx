@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import { Button } from "../common/button/button";
 import { EmailInput } from "../common/email-input/email-input";
 import { repairPassword } from "../../services/authService";
+import { validateEmail } from "../../utils/validators";
 
 import "./forgot-password-form.scss";
 
@@ -18,11 +19,17 @@ const ForgotPasswordForm = () => {
   };
 
   const repair = () => {
-    repairPassword(email).then((data) => console.log(data));
+    // email validation
+    const result = validateEmail(email);
+    setEmailError(result);
+
+    if (!result) {
+      repairPassword(email).then((data) => console.log(data));
+    }
   };
 
   return (
-    <form className="forgot-password-form form">
+    <div className="forgot-password-form form">
       <div className="form__title">Forgot Your Password?</div>
       <div className="forgot-password-form__text">
         Please enter your email address below and allow for a few minutes to
@@ -49,7 +56,7 @@ const ForgotPasswordForm = () => {
           Register
         </span>
       </div>
-    </form>
+    </div>
   );
 };
 

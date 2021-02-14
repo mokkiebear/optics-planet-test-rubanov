@@ -30,7 +30,7 @@ const SignInForm = () => {
   };
 
   return (
-    <form className="sign-in-form form">
+    <div className="sign-in-form form">
       <div className="form__title">Sign In</div>
       <EmailInput
         value={email}
@@ -51,7 +51,9 @@ const SignInForm = () => {
             onChange={(e) => setKeepMeSignedIn(e.target.checked)}
             id="keep-me-signed"
           />
-          <label htmlFor="keep-me-signed">Keep me signed in</label>
+          <label htmlFor="keep-me-signed" className="sign-in-form__checkbox">
+            Keep me signed in
+          </label>
         </div>
 
         <div className="link" onClick={() => history.push("/forgot-password")}>
@@ -70,7 +72,7 @@ const SignInForm = () => {
         type="white"
         onClick={() => history.push("/register")}
       />
-    </form>
+    </div>
   );
 };
 
