@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
-import { register } from "../../services/authService";
 
+import { register } from "../../services/authService";
 import { validateEmail } from "../../utils/validators";
 import { Button } from "../common/button/button";
 import { EmailInput } from "../common/email-input/email-input";
-import { Input } from "../common/input/input";
 import { PasswordInput } from "../common/password-input/password-input";
 
 import "./register-form.scss";

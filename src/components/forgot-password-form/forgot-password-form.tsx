@@ -37,7 +37,7 @@ const ForgotPasswordForm = () => {
       <Button
         text="Send"
         type="green"
-        disabled={!email || (!!email && !!emailError)}
+        disabled={!email || !!emailError}
         onClick={() => repair()}
       />
       <div className="forgot-password-form__additional-actions">
