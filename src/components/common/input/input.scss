@@ -1,3 +1,5 @@
+@import '/src/styles/styles.scss';
+
 .input {
     display: flex;
     flex-direction: column;
@@ -14,7 +16,7 @@
         margin: 4px 0;
 
         &--is-required-mark {
-            color: red;
+            color: $red;
             margin: 0 4px;
         }
     }

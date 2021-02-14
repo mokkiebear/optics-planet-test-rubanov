@@ -1,3 +1,5 @@
+@import '/src/styles/styles.scss';
+
 .button {
     display: block;
     margin: 0 auto;
@@ -16,17 +18,17 @@
     }
 
     &--green {
-        color: white;
-        background: green;
+        color: $white;
+        background: $green;
 
         &:hover {
-            background: rgb(0, 101, 0);
+            background: $green-2;
         }
     }
 
     &--white {
-        color: black;
-        background: white;
+        color: $black;
+        background: $white;
 
         &:hover {
             background: rgb(231, 231, 231);

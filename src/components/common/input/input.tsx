@@ -28,7 +28,7 @@ export const Input = ({
     <div className="input">
       <label className="input__label">
         {label}
-        {isRequired && <span className="input__label-is-required-mark">*</span>}
+        {isRequired && <span className="input__label--is-required-mark">*</span>}
       </label>
       <input
         className="input__field"

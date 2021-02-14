@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
+import { signIn } from "../../services/authService";
+import { validateEmail } from "../../utils/validators";
 import { Button } from "../common/button/button";
 import { EmailInput } from "../common/email-input/email-input";
-import { Input } from "../common/input/input";
 import { PasswordInput } from "../common/password-input/password-input";
 
 import "./sign-in-form.scss";
 
-export const SignInForm = () => {
+const SignInForm = () => {
+  const history = useHistory();
+
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
 
@@ -14,9 +18,19 @@ export const SignInForm = () => {
 
   const [keepMeSignedIn, setKeepMeSignedIn] = useState(false);
 
+  const onSignIn = () => {
+    // email validation
+    const result = validateEmail(email);
+    setEmailError(result);
+
+    if (!result) {
+      signIn(email, password).then((data) => console.log(data));
+    }
+  };
+
   return (
-    <div className="sign-in-form">
-      <div className="sign-in-form__title">Sign In</div>
+    <form className="sign-in-form form">
+      <div className="form__title">Sign In</div>
       <EmailInput
         value={email}
         validationMessage={emailError}
@@ -33,17 +47,29 @@ export const SignInForm = () => {
             type="checkbox"
             checked={keepMeSignedIn}
             onChange={(e) => setKeepMeSignedIn(e.target.checked)}
+            id="keep-me-signed"
           />
-          <label>Keep me signed in</label>
+          <label htmlFor="keep-me-signed">Keep me signed in</label>
         </div>
-        <a>Forgot your password?</a>
+        <div className="link" onClick={() => history.push("/forgot-password")}>
+          Forgot your password?
+        </div>
       </div>
       <Button
         text="Sign In"
         type="green"
-        disabled={!!email && !!password && !!emailError}
+        disabled={
+          !email || !password || ((!!email || !!password) && !!emailError)
+        }
+        onClick={() => onSignIn()}
       />
-      <Button text="Register Now" type="white" />
-    </div>
+      <Button
+        text="Register Now"
+        type="white"
+        onClick={() => history.push("/register")}
+      />
+    </form>
   );
 };
+
+export default SignInForm;
