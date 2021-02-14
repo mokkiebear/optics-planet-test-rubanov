@@ -1,4 +1,6 @@
 import React from "react";
+import classNames from "classnames";
+
 import { ValidationMessage } from "../validation-message/validation-message";
 
 import "./input.scss";
@@ -11,6 +13,7 @@ export interface IInputProps {
   validationMessage?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   children?: JSX.Element;
+  inputClassName?: string;
 }
 
 export const Input = ({
@@ -21,6 +24,7 @@ export const Input = ({
   validationMessage,
   onChange,
   children,
+  inputClassName,
 }: IInputProps) => {
   return (
     <div className="input">
@@ -31,7 +35,7 @@ export const Input = ({
         )}
       </label>
       <input
-        className="input__field"
+        className={classNames("input__field", inputClassName)}
         type={type}
         value={value}
         onChange={onChange}
