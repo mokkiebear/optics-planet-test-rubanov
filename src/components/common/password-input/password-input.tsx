@@ -14,6 +14,7 @@ export const PasswordInput = ({ value, label, ...otherProps }: IProps) => {
       label={label ? label : "Password"}
       type={isVisible ? "text" : "password"}
       value={value}
+      inputClassName='password-input__padding'
       {...otherProps}
     >
       {!!value ? (
