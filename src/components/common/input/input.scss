@@ -1,0 +1,29 @@
+@import '/src/styles/styles.scss';
+
+.input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+    margin-bottom: 16px;
+
+    &__label, &__field {
+        display: block;
+    }
+
+    &__label {
+        margin: 4px 0;
+
+        &--is-required-mark {
+            color: $red;
+            margin: 0 4px;
+        }
+    }
+
+    &__field {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 12px;
+    }
+}

@@ -1,0 +1,37 @@
+@import '/src/styles/styles.scss';
+
+.button {
+    display: block;
+    margin: 0 auto;
+    font-size: 20px;
+    width: 100%;
+    padding: 8px 16px;
+    margin: 8px 0;
+    border-radius: 4px;
+    border: 1px solid rgba(128, 128, 128, 0.455);
+    cursor: pointer;
+    outline: none;
+
+    &:disabled, &:disabled:hover {
+        cursor: default;
+        background: gray;
+    }
+
+    &--green {
+        color: $white;
+        background: $green;
+
+        &:hover {
+            background: $green-2;
+        }
+    }
+
+    &--white {
+        color: $black;
+        background: $white;
+
+        &:hover {
+            background: rgb(231, 231, 231);
+        }
+    }
+}
