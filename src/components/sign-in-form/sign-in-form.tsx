@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
+
 import { signIn } from "../../services/authService";
 import { validateEmail } from "../../utils/validators";
 import { Button } from "../common/button/button";
@@ -41,6 +42,7 @@ const SignInForm = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+
       <div className="sign-in-form__additional-actions">
         <div>
           <input
@@ -51,16 +53,16 @@ const SignInForm = () => {
           />
           <label htmlFor="keep-me-signed">Keep me signed in</label>
         </div>
+
         <div className="link" onClick={() => history.push("/forgot-password")}>
           Forgot your password?
         </div>
       </div>
+
       <Button
         text="Sign In"
         type="green"
-        disabled={
-          !email || !password || ((!!email || !!password) && !!emailError)
-        }
+        disabled={!email || !password || !!emailError}
         onClick={() => onSignIn()}
       />
       <Button
