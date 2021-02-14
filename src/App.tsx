@@ -1,8 +1,8 @@
 import React, { lazy, Suspense } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { Header } from "./components/header/header";
 
-import './styles/styles.scss';
+import "./styles/styles.scss";
 
 const SignInForm = lazy(() => import("./components/sign-in-form/sign-in-form"));
 const RegisterForm = lazy(
@@ -19,6 +19,9 @@ function App() {
         <Header />
 
         <Switch>
+          <Route exact path="/">
+            <Redirect to="signin" />
+          </Route>
           <Route path="/signin" component={SignInForm} />
           <Route path="/register" component={RegisterForm} />
           <Route path="/forgot-password" component={ForgotPasswordForm} />
