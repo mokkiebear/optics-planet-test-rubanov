@@ -1,0 +1,18 @@
+.sign-in-form {
+  margin: 0 auto;
+  width: 500px;
+  box-sizing: border-box;
+  padding: 16px;
+
+  &__title {
+    font-size: 20px;
+    text-align: left;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  &__additional-actions {
+      display: flex;
+      justify-content: space-between;
+  }
+}
